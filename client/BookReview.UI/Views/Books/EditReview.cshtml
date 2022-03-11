@@ -1,0 +1,42 @@
+﻿@model BookReview.UI.Models.BookReviewModel
+
+@{
+    ViewData["Title"] = "EditReview";
+}
+
+<h1 style="text-align:center">EditReview</h1>
+
+<hr />
+<div class="form-horizontal">
+    <div class="col-md-4">
+        <form asp-action="EditReview">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BookId" class="control-label" ></label>
+                <input asp-for="BookId" class="form-control" readonly />
+                <span asp-validation-for="BookId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label"></label>
+                <input asp-for="BookName" class="form-control" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Review" class="control-label"></label>
+                <input asp-for="Review" class="form-control" />
+                <span asp-validation-for="Review" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="BookReviews">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

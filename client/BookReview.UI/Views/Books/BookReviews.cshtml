@@ -1,0 +1,46 @@
+﻿@model IEnumerable<BookReview.UI.Models.BookReviewModel>
+
+@{
+    ViewData["Title"] = "BookReviews";
+}
+
+<h1 style="text-align:center">BookReviews</h1>
+
+<p>
+    <a asp-action="CreateReview">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Review)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditReview", new { id=item.BookId }, new { @class = "btn-primary" }) |
+                @Html.ActionLink("Delete", "DeleteReview", new { id=item.BookId }, new { @class = "btn-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
